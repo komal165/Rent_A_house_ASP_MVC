@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Rent_A_House.BusinessLayer.House>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Houses</h2>
+
+<p>
+    <a class="btn btn-outline-primary"  asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HouseOwner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HouseAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseOwner.HouseOwnerRegistrationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseAddress)
+            </td>
+            <td>
+                <a class="btn btn-outline-primary"  asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-outline-primary"  asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-outline-primary" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

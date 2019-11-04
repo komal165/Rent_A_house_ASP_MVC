@@ -1,0 +1,30 @@
+﻿@model Rent_A_House.BusinessLayer.House
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>House</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseOwner)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HouseOwner.HouseOwnerRegistrationId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HouseAddress)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-outline-primary"  asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
